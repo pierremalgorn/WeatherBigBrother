@@ -50,6 +50,12 @@ body {
 	text-align: justify;
 }
 
+#favicon{
+	float : left;
+	margin-left: 3%;
+}
+
+
 .navbar {
 	background-color: #e4e6e5;
 	background-color: rgba( 228, 230, 229, .85 );
