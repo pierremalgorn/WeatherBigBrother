@@ -2,7 +2,7 @@ var WeatherBigBrother = angular.module('WeatherBigBrother', []).controller('MapC
     $scope.cityWeather = [];
     
     $scope.getWeatherForCity = function(city){
-        $http.get('http://api.openweathermap.org/data/2.5/weather', {q: 'paris,fr'})
+        $http.get('http://api.openweathermap.org/data/2.5/weather?q='+city)
             .success(function(data){
                  $scope.cityWeather = data;
          console.log(data);
