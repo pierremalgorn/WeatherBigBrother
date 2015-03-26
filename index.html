@@ -48,22 +48,17 @@
 	<!-- === MAIN Background === -->
         <div class="slide" id="baseCarte">
             <img src ="images/MAPOK.jpg" />
-            <div ng-click="getWeatherForCity('paris');" class="pointVille" style="top: 20%; left: 35%">{{cityWeather.weather[0].description}}</div>
+                <div ng-repeat="point in points" ng-click="getWeatherForCity(point.city);" class="pointVille" style="top: {{point.top}}%; left: {{point.left}}%"></div>
         </div>
 
         
-        <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalWeatherForCity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">{{cityWeather.name}}</h4>
       </div>
       <div class="modal-body">
         ...
