@@ -62,18 +62,25 @@
       </div>
       <div class="modal-body">
           <div class="row">
-              <div class="col-lg-6">
-                <img ng-src="http://openweathermap.org/img/w/{{cityWeather.weather[0].icon}}.png"  /> {{cityWeather.weather[0].description}}
+              <div class="col-lg-2">
+                <img ng-src="http://openweathermap.org/img/w/{{cityWeather.weather[0].icon}}.png"  /> 
               </div>
-              <div class="col-lg-6">
-                  Wind force : {{toKMH(cityWeather.wind.speed);}}
+              <div class="col-lg-4">
+                    {{cityWeather.weather[0].description}}
+              </div>
+              <div class="col-lg-4">
+                  Wind force : {{toKMH(cityWeather.wind.speed);}} km/h 
+              </div>
+              <div class="col-lg-2">
+                  <img id="windDirection" src="./images/wind.png" />
               </div>
           </div>
           <div class="row">
-              Temperature : {{toCelsius(cityWeather.main.temp);}} <img style="" src="./images/wind.png" />
+              Temperature : {{toCelsius(cityWeather.main.temp);}} °C
           </div>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-info">More Info about {{cityWeather.name}}</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

@@ -19,17 +19,29 @@ var WeatherBigBrother = angular.module('WeatherBigBrother', []).controller('MapC
         {city:'Sao_Paulo,bra', top:71.87, left:34.12},
         {city:'Santiago,chile', top:77.21, left:26.6},
         {city:'Buenos_Aires,ar', top:50, left:50},
-
+        {city:'Paris,fr', top:33, left:46},
+        {city:'Pélissanne,fr', top:34, left:46},
+        {city:'New York,us', top:37, left:27},
       ];
     
     $scope.cityWeather = [];
+    
+    var displayWeather = function() {
+        var deg = $scope.cityWeather.wind.deg;
+        $('#windDirection').css({
+            '-ms-transform': 'rotate('+deg+'deg)',
+            '-webkit-transform': 'rotate('+deg+'deg)',
+            '-transform': 'rotate('+deg+'deg)' 
+        });
+        $('#modalWeatherForCity').modal('show');
+    }
     
     $scope.getWeatherForCity = function(city){
         console.log(city);
         $http.get('http://api.openweathermap.org/data/2.5/weather?q='+city)
             .success(function(data){
                  $scope.cityWeather = data;
-                 $('#modalWeatherForCity').modal('show');
+                 displayWeather();
         })
             .error(function(data){
                 //GERER L'ERREUR ???
@@ -38,11 +50,11 @@ var WeatherBigBrother = angular.module('WeatherBigBrother', []).controller('MapC
     };
     
     $scope.toCelsius = function(temp) {
-        return ((temp - 32) * 5.0/9.0);
+        return (temp - 272.15).toFixed(1);
     };
     
     $scope.toKMH = function(speed) {
-        return (speed * 3,6);
+        return (speed * 3.6).toFixed(1);
     }
     
     $scope.coordPoint = function(point, pos) {
