@@ -48,7 +48,7 @@
 	<!-- === MAIN Background === -->
         <div class="slide" id="baseCarte">
             <img src ="images/MAPOK.jpg" />
-                <div ng-repeat="point in points" ng-click="getWeatherForCity(point.city);" class="pointVille" style="top: {{point.top}}%; left: {{point.left}}%"></div>
+                <div ng-repeat="point in points" ng-click="getWeatherForCity(point.city);" class="pointVille" style="top: {{coordPoint(point, 'top');}}; left: {{coordPoint(point, 'left');}}; right: {{coordPoint(point, 'right');}}; bottom: {{coordPoint(point, 'bottom');}};"></div>
         </div>
 
         
@@ -61,33 +61,24 @@
         <h4 class="modal-title" id="myModalLabel">{{cityWeather.name}}</h4>
       </div>
       <div class="modal-body">
-       {{cityWeather.weather[0].description}}
+          <div class="row">
+              <div class="col-lg-6">
+                <img ng-src="http://openweathermap.org/img/w/{{cityWeather.weather[0].icon}}.png"  /> {{cityWeather.weather[0].description}}
+              </div>
+              <div class="col-lg-6">
+                  Wind force : {{toKMH(cityWeather.wind.speed);}}
+              </div>
+          </div>
+          <div class="row">
+              Temperature : {{toCelsius(cityWeather.main.temp);}} <img style="" src="./images/wind.png" />
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-        
-        <div class="slide" id="slide-1" data-slide="1">
-		<div class="container">
-			<div id="home-row-1" class="row clearfix">
-				<div class="col-12">
-					<h1 class="font-semibold">MUNTER <span class="font-thin">DESIGN</span></h1>
-					<h4 class="font-thin">We are an <span class="font-semibold">independent interactive agency</span> based in London.</h4>
-					<br>
-					<br>
-				</div><!-- /col-12 -->
-			</div><!-- /row -->
-			<div id="home-row-2" class="row clearfix">
-				<div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="4"><img src="images/s02.png"></div><span>PROFESSIONAL</span></div>
-				<div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="3"><img src="images/s01.png"></div><span>FRIENDLY</span></div>
-				<div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="5"><img src="images/s03.png"></div><span>SUITABLE</span></div>
-			</div><!-- /row -->
-		</div><!-- /container -->
-	</div><!-- /slide1 -->
 	
 
 	
