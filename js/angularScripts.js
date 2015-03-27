@@ -1,8 +1,25 @@
 var WeatherBigBrother = angular.module('WeatherBigBrother', []).controller('MapController', function($scope, $http){
     
     $scope.points = [
-        {city:'Paris,fr', top:33, left:46},
-        {city:'New York,us', top:37, left:27},
+        {city:'Paris,fr', top:33, left:45.8},
+        {city:'Madrid,es', top:37.1, left:44.14},
+        {city:'London_uk', top:30.35, left:45},
+        {city:'Berlin_de', top:31.65, left:47.47},
+        {city:'Moscow_ru', top:30.3, left:56.6},
+        {city:'Saint_Petersburg', top:26.36, left:54.14},
+        {city:'New York,us', top:38.4, left:27.4},
+        {city:'Washington,us', top:42.3, left:25.8},
+        {city:'Chicago,us', top:37.1, left:23.3},
+        {city:'Los_Angeles,us', top:43.7, left:14},
+        {city:'Vancoucer,ca', top:34.42, left:12.41},
+        {city:'Mexico,me', top:50.4, left:19.1},
+        {city:'Caracas,ve', top:57.1, left:27.4},
+        {city:'Bogota,co', top:61.1, left:25.8},
+        {city:'Lima,pe', top:66.5, left:24.9},
+        {city:'Sao_Paulo,bra', top:71.87, left:34.12},
+        {city:'Santiago,chile', top:77.21, left:26.6},
+        {city:'Buenos_Aires,ar', top:50, left:50},
+
       ];
     
     $scope.cityWeather = [];
