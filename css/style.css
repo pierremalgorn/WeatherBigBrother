@@ -32,10 +32,9 @@ body {
 
 #logo{
 	float : left;
-	margin-left: 3%;
+	height: 45px;
+        width: 45px;
 }
-
-
 
 .navbar {
 	background-color: #e4e6e5;
@@ -43,6 +42,7 @@ body {
 	border-bottom: 0 none;
 	font-size: 12px;
 	transition: .25s all linear;
+        margin: 0px
 }
 
 .navbar.inv {
@@ -159,7 +159,7 @@ body {
 		margin-right: 12px;
 	}
 			
-	.nav li[data-slide="1"] {
+	.nav li {
 		background-color: #2f2f2f;
 	}
 	
@@ -171,14 +171,6 @@ body {
 
 :focus {outline:none;}
 ::-moz-focus-inner {border:0;}
-
-.slide {
-	padding-bottom: 65px;
-	padding-top: 50px;
-	text-align: center;
-	width : 200%;
-	background-image: url("images/background.jpeg");
-}
 
 #slide-1 {
     background-color: #2f2f2f;
@@ -200,6 +192,8 @@ body {
 
 
 //CUSTOM
+
+
 
 #baseCarte {
     position: relative;
@@ -246,3 +240,4 @@ body {
 .modal-dialog {
     left : auto;
 }
+
