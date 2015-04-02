@@ -176,6 +176,7 @@ body {
     background-color: #2f2f2f;
 }
 
+
 #slide-1 h1 {
 	padding-top: 130px;
 }
@@ -197,15 +198,12 @@ body {
 
 #baseCarte {
     position: relative;
-    width: 50%;
-    height: 50%;
+    width: 100%;
 }
 
 #baseCarte img {
     z-index: 0;
-    width: 50%;
-    height: 50%;
-    float: left;
+    width: 100%;
 }
 
 .pointVille {
