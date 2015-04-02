@@ -8,28 +8,31 @@ var WeatherBigBrother = angular.module('WeatherBigBrother', []).controller('MapC
       ];
     
     $scope.cityWeather = [];
+	
+	jQuery(document).ready(function($) {
+		var query = window.location.href;
+		var vars = query.split("#");
+		var flag = 0;
+		(vars[1] >= 0 && vars[1] <= $(".nav li").length()) ? goTo(vars[1]) : goTo(0);
+		$( ".nav li" ).click(function() {
+			if(flag == 1) {return false;}
+			$(".nav li").removeClass("active");
+			$(this).addClass("active")
+			flag = 1;
+			$( "#slider" ).animate({ "margin-left": -($(this).index() * $("body").width()) + "px" }, "slow", function(){
+				flag = 0;
+			});
+		});
+		
+	function goTo(nb){
+			$( "#slider" ).css( "margin-left", - (nb * $("body").width()) +"px");
+			$(".nav li").removeClass("active");
+			$('.nav li:nth('+nb+')').addClass("active");
+			
+	}
+	});
+	
 
-    jQuery(document).ready(function($) {
-        var query = window.location.href;
-        var vars = query.split("#");
-        var flag = 0;
-        (vars[1] >= 0 && vars[1] <= $(".moreInfo").size()) ? goTo(vars[1]) : goTo(0);
-        $( ".moreInfo" ).click(function() { 
-            if(flag == 1) {return false;}
-            $(".moreInfo").removeClass("active");
-            $(this).addClass("active")
-            flag = 1;
-            $( ".slide" ).animate({right:'+=100%'}, "slow", function(){
-                flag = 0;
-            });
-        });
-    function goTo(nb){
-            $( ".slide" ).css( "margin-left", - (nb * $("#setup").width()) +"px");
-            $(".moreInfo").removeClass("active");
-            $('.moreInfo:nth('+nb+')').addClass("active");
-            
-        }
-    });
     
     var displayWeather = function() {
         var deg = $scope.cityWeather.wind.deg;
